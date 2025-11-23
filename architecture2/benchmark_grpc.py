@@ -54,7 +54,7 @@ def run_test():
     p99 = max(latencies) * 1000
 
     # Console Output
-    print(f"\n✅ Completed {len(latencies)} requests")
+    print(f"\n Completed {len(latencies)} requests")
     print(f"Throughput: {throughput:.2f} requests/sec")
     print(f"Average latency: {avg_latency:.2f} ms")
     print(f"P90 latency: {p90:.2f} ms")
