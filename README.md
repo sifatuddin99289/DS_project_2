@@ -60,7 +60,20 @@ go run client/alert_client.go
 ```
 Performance analysis
 ```
+cd ~/Desktop/ds_tmp/architecture2
+python3 -m venv venv
+source venv/bin/activate
+pip install --upgrade pip
+pip install protobuf==4.23.4
+pip install grpcio==1.57.0 grpcio-tools==1.57.0
+pip install matplotlib numpy
+
+python3 -m grpc_tools.protoc -I proto --python_out=proto --grpc_python_out=proto proto/telemetry.proto
+
+sed -i 's/import telemetry_pb2/from proto import telemetry_pb2/' proto/telemetry_pb2_grpc.py
+
 python3 benchmark_grpc.py
+
 
 ```
 Clean shutdown when done
